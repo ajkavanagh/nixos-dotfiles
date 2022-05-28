@@ -1,4 +1,11 @@
-# NixOS "Dotfiles" and initial installation / preparation scripts
+# Frame.work NixOS "Dotfiles" and initial installation / preparation scripts
+
+This is the config for my Frame.work laptop. It's very much a work in progress, so don't consider it to be in anyway complete.  At present it results in a completely unconfigured GNOME based system without any particularly usable tools.
+
+ * See the [TODO](./docs/TODO.md) for further work to be done.
+ * The [LOG](./docs/LOG.md) contains my general ramblings as I worked out how to do things.
+
+Note this is my first attempt at Nix and NixOS so it's not exactly 'good'. Expect it to be quite bad, in fact, and there to be a lot of churn as I understand more about the Nix language and how to use it to configure the laptop.  Eventually, it'll make (hopefully) it's way over to my desktop and then on to my servers.
 
 The plan:
 
