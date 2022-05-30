@@ -24,6 +24,7 @@
   # Packages installed for this user:
   home.packages = with pkgs; [
     alacritty
+    bitwarden
     git-crypt
     gnupg
   ];
