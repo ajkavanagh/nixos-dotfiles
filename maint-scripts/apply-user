@@ -1,0 +1,5 @@
+#!/bin/sh
+(
+    cd $HOME/.nixos-dotfiles
+    home-manager switch -f ./users/alex/home.nix
+)
