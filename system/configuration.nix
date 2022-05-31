@@ -97,6 +97,7 @@
     git
     file
     firefox
+    pinentry-gnome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
