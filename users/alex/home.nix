@@ -27,5 +27,6 @@
     bitwarden
     git-crypt
     gnupg
+    silver-searcher
   ];
 }

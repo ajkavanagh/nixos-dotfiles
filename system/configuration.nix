@@ -96,8 +96,9 @@
     wget
     git
     file
-    firefox
+    firefox-wayland
     pinentry-gnome
+    gnome.gnome-tweaks
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

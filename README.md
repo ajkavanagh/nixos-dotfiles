@@ -1,5 +1,7 @@
 # Frame.work NixOS "Dotfiles" and initial installation / preparation scripts
 
+NOTE: This git repo is 'designed' to be installed at `~/.dotfiles` so that the maintence scripts work.
+
 This is the config for my Frame.work laptop. It's very much a work in progress, so don't consider it to be in anyway complete.  At present it results in a completely unconfigured GNOME based system without any particularly usable tools.
 
  * See the [TODO](./docs/TODO.md) for further work to be done.
