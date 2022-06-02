@@ -29,4 +29,11 @@
     gnupg
     silver-searcher
   ];
+
+  # Let Home Manager manage bash
+  programs.bash.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 }
