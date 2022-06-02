@@ -46,3 +46,43 @@ Followed https://christine.website/blog/nix-flakes-1-2022-02-21
 
 Essentially add `nix = { ... };` to the `configuration.nix` and do a nixos-rebuild switch
 
+## 2055-06-02 -- Enable git-crypt on the .dotfiles repository
+
+Firstly, I renamed the `.nixos-dotfiles` directory to `.dotfiles` and made the changes to `maint-scripts/apply-system` and `maint-scripts/apply-user` as it's smaller to type and doesn't interfere with other `.nix*` directories/files in `$HOME`; this affects completion, so seems like a good move.
+
+References:
+
+ * https://www.agwa.name/projects/git-crypt/
+ * https://github.com/AGWA/git-crypt
+
+Then, I enabled git-crypt.  This is so that I can store the contents of my `$HOME/.ssh` directory in this repository, and obviously, I don't want to share those secrets!
+
+Commands
+
+```bash
+cd ~/.dotfiles
+git crypt init
+git crypt add-gpg-user alex@ajkavanagh.co.uk
+
+# And to export the shared key (from the init):
+git crypt export-key ~/Downloads/nixos-dotfiles-gpg.key
+
+# Now for where the files get stored
+# Note that the filenames are not encrypted, only the contents.
+mkdir .secrets
+```
+
+The create a `.gitattributes` file as so:
+
+```bash
+~/.dotfiles]$ cat .gitattributes 
+.secrets/** filter=git-crypt diff=git-crypt
+```
+
+Then to lock and unlock the git repository:
+
+```bash
+git crypt lock
+git crypt unlock
+```
+

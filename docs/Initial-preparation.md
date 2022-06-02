@@ -61,3 +61,7 @@ Created a snapshot of root with:
 sudo btrfs subv snapshot -r /mnt /mnt/.snapshots/@-blank
 ```
 
+
+# Setting up the .dotfiles
+
+* Remember to do the git-crypt stuff, particularly setting up the pre-commit hook
