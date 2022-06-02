@@ -89,6 +89,9 @@
     extraGroups = [ "wheel" "networkmanager" ]; # "wheel" enables ‘sudo’ for the user.
   };
 
+  # Enable the gpgagent
+  programs.gnupg.agent.enable = true;
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -97,6 +100,7 @@
     git
     file
     firefox-wayland
+    google-chrome
     pinentry-gnome
     gnome.gnome-tweaks
   ];
