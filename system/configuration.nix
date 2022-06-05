@@ -31,7 +31,7 @@
     extraConfig = ''
       HandlePowerKey=suspend-then-hibernate
     '';
-  }; 
+  };
   systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
   # extra boot modules for crypt support.
@@ -91,7 +91,7 @@
 
   # Enable the gpgagent
   programs.gnupg.agent.enable = true;
-  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -146,6 +146,11 @@
         experimental-features = nix-command flakes
     '';
   };
+
+  # Configure mullvad to be available in the system for firewalls
+  networking.firewall.checkReversePath = "loose";
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

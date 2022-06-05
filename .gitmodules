@@ -1,0 +1,3 @@
+[submodule "submodules/vcsh_nvim"]
+	path = submodules/vcsh_nvim
+	url = git@github.com:ajkavanagh/vcsh_nvim.git

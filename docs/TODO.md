@@ -6,6 +6,8 @@ Things to sort out on the framework NixOS laptop
 * Setup neovim as the editor (and get my config across for it).
   - Use the flake: https://github.com/neovim/neovim/wiki/Building-Neovim#nixos--nix
   - Also: https://nixos.wiki/wiki/Neovim
+* Set up vpn so that I can access the Canonical network.  Only need SSH access and the VPN to be able to do work on the framework laptop.
+* Need mattermost setup so I can communicate; not the snap version!
 * Set up alacritty in home manager
 * Set up sway
   - https://gist.github.com/kborling/76805ade81ac5bfdd712df294208c878

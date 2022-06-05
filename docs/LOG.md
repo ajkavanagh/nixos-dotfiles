@@ -86,3 +86,22 @@ git crypt lock
 git crypt unlock
 ```
 
+# Mullvad-vpn (2022-06-05)
+
+To summarize for anyone else wanting to setup mullvad VPN on NixOS (as of 2021-08-04)...
+
+    Add the following to /etc/nixos/configuration.nix:
+
+  networking.firewall.checkReversePath = "loose";
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
+
+    nixos-rebuild switch and reboot.
+
+    nix-shell -p mullvad-vpn
+    mullvad connect
+
+    Follow https://mullvad.net/en/help/how-use-mullvad-cli/
+
+From: https://github.com/NixOS/nixpkgs/issues/113589#issuecomment-893233499
+
