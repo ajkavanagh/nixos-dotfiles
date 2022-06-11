@@ -50,6 +50,7 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    XCURSOR_THEME = "Adwaita";  # may need to revist for sway?
   };
 
   # configure neovim to use the submodule vcsh_nvim config files
