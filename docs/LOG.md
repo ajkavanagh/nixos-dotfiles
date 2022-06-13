@@ -105,3 +105,27 @@ To summarize for anyone else wanting to setup mullvad VPN on NixOS (as of 2021-0
 
 From: https://github.com/NixOS/nixpkgs/issues/113589#issuecomment-893233499
 
+# Nerd Fonts (2022-06-11)
+
+Installing Nerd fonts (for alacritty) turned out to be easier that I had guessed.  Essentially followed: https://discourse.nixos.org/t/home-manager-nerdfonts/11226 which describes how to add it to the home-manager config.  Although, my neovim seems to be acting up a little, so I might need to switch to 0.6 rather than nightly.
+
+# Setting up caplocks as escape and switching them
+
+This turns out to be a bit more complex than I thought.  Essentially, I needed to install something called [`interception tools`](https://gitlab.com/interception/linux/tools) which is:
+
+> A minimal composable infrastructure on top of libudev and libevdev
+
+However, the default didn't work due to this [bug](https://github.com/NixOS/nixpkgs/issues/126681).  i.e. it may or may not work depending on the order in which the evaluation is done, which is deliberately undefined in the functional language.  Therefore, the [comment](https://github.com/NixOS/nixpkgs/issues/126681#issuecomment-860071968) actually provides the solution, which I added to the `configuration.nix`:
+
+```nix
+# Map CapsLock to Esc on single press and Ctrl on when used with multiple keys.
+services.interception-tools = {
+  enable = true;
+  plugins = [ pkgs.interception-tools-plugins.caps2esc ];
+  udevmonConfig = ''
+    - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+      DEVICE:
+        EVENTS:
+          EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+  ''
+```

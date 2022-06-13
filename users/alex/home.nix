@@ -26,6 +26,9 @@
     }))
   ];
 
+  # Switch fonts on; they get installed in home.packages
+  fonts.fontconfig.enable = true;
+
   # Packages installed for this user:
   home.packages = with pkgs;
   [
@@ -37,6 +40,7 @@
     gnupg
     mattermost-desktop
     neovim-nightly
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     python3Full
     nodejs
     nodePackages.neovim
@@ -51,6 +55,7 @@
   home.sessionVariables = {
     EDITOR = "vim";
     XCURSOR_THEME = "Adwaita";  # may need to revist for sway?
+    QT_QPA_PLATFORM = "wayland";  # for QT apps that run python?
   };
 
   # configure neovim to use the submodule vcsh_nvim config files
@@ -62,7 +67,54 @@
     recursive = true;
   };
 
+  # configure alacritty to use the submodule vcsh_misc-config files
+  # that are shared with vcsh on Ubuntu.  This is temporary until I can
+  # work out how to do it properly in nix/home-manager
+  xdg.configFile.alacritty = {
+    source = ../../submodules/vcsh_misc-config/.config/alacritty;
+    recursive = true;
+  };
+
+  # Setup git using submodules/vcsh_misc-config/.gitconfig and related
+  # files; this is a temporary measure whilst they are shared with Ubuntu
+  home.file.".gitconfig".source = ../../submodules/vcsh_misc-config/.gitconfig;
+  home.file.".gitconfig.d" = {
+    source = ../../submodules/vcsh_misc-config/.gitignore.d;
+    recursive = true;
+  };
+  # TODO: need to add the .gitignore_global file here and add it from laptop into
+  #       the vcsh_misc-config module
+
+
   # Set up non-declarative syncthing and syncthing.tray
   services.syncthing.enable = true;
-  services.syncthing.tray.enable = true;
+  services.syncthing.tray.enable = false;  # broken on Gnome on wayland?
+
+  # Add zoxide to the shell (as z and zi) as these are handy as a jump program
+  programs.zoxide.enable = true;
+
+  # Starship prompt, declaratively in this module (ignoring the file in vcsh_misc-config submodule
+  programs.starship = {
+    enable = true;
+    # Settings written to ~/.config/starship.toml
+    settings = {
+      username.show_always = true;
+      username.format = "[$user](dimmed)";
+
+      hostname = {
+        ssh_only = false;
+        #format = "@[$hostname]($style): "
+        format = "@[$hostname](dimmed): ";
+      };
+
+      git_branch.format = "on [$symbol$branch](dimmed) ";
+      git_status.format = "([\\[$all_status$ahead_behind\\]](dimmed fg:red) )";
+
+      line_break.disabled = true;
+
+      cmd_duration.disabled = true;
+
+      rust.disabled = true;
+    };
+  };
 }
