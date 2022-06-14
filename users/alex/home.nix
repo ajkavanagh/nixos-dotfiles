@@ -54,6 +54,7 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    TERM = "xterm-256color";
     XCURSOR_THEME = "Adwaita";  # may need to revist for sway?
     QT_QPA_PLATFORM = "wayland";  # for QT apps that run python?
   };
