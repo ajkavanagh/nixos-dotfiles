@@ -20,11 +20,11 @@
   programs.home-manager.enable = true;
 
   # Configuration starts here:
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    }))
-  ];
+  # nixpkgs.overlays = [
+  #  (import (builtins.fetchTarball {
+  #    url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+  #  }))
+  #];
 
   # Switch fonts on; they get installed in home.packages
   fonts.fontconfig.enable = true;
@@ -41,7 +41,8 @@
     git-crypt
     gnupg
     mattermost-desktop
-    neovim-nightly
+    #neovim-nightly
+    neovim
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     (python39.withPackages(ps: with ps; [ pynvim pip ]))
     nodejs
