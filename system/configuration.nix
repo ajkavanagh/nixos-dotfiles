@@ -114,6 +114,7 @@
     google-chrome
     pinentry-gnome
     gnome.gnome-tweaks
+    wl-clipboard
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

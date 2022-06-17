@@ -34,6 +34,8 @@
   [
     alacritty
     bitwarden
+    cargo
+    cmake
     fd
     gcc
     git-crypt
@@ -41,12 +43,13 @@
     mattermost-desktop
     neovim-nightly
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    python3Full
+    (python39.withPackages(ps: with ps; [ pynvim pip ]))
     nodejs
     nodePackages.neovim
     ripgrep
     silver-searcher
     tree-sitter
+    unzip
   ];
 
   # Let Home Manager manage bash

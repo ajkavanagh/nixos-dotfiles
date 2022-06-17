@@ -28,10 +28,6 @@ Things to sort out on the framework NixOS laptop
 So Home Manager manages the users programs and dotfiles.  Need to migrate my vcsh dotfiles for various things into .dotfiles (here) so that I can get all my normal configuration across.  I'll probably do that by sourcing existing config files and maybe using git submodules to `vcsh_nvim`.  One issue is how to maintain consistent configuration between my Ubuntu machines and NixOS framework?
 
 * How to have different home-manager config parts for different machines.  e.g. one on Ubuntu, one on NixOS?
-* Neovim configs; need a way to share these between existing machines (VCSH) and the nixos-dotfiles/home-manager setup.
-* alacritty - with the darcular theme, etc.
-
-
 
 # DONE
 
