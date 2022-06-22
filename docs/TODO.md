@@ -4,13 +4,10 @@ Things to sort out on the framework NixOS laptop
 
 * Setup bash aliases
 * Fix syncthingtray which is broken due to qt5, wayland and GNOME and somthing to do with an environment variable. See [bug](https://github.com/nix-community/home-manager/issues/2963).
-* Setup neovim as the editor (and get my config across for it).
-  - Use the flake: https://github.com/neovim/neovim/wiki/Building-Neovim#nixos--nix
-  - Also: https://nixos.wiki/wiki/Neovim
-  - TODO: currently broken as python3 doesn't work.
 * Set up sway
   - https://gist.github.com/kborling/76805ade81ac5bfdd712df294208c878
   - useful info: https://shibumi.dev/posts/wayland-in-2021/  -- arch, but adaptable.
+* Set up riverwm
 * Setup pipewire: https://nixos.wiki/wiki/PipeWire
 * Setup distrobox (maybe?)
   - Issue merged: https://github.com/NixOS/nixpkgs/pull/160251
@@ -29,6 +26,16 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 
 * How to have different home-manager config parts for different machines.  e.g. one on Ubuntu, one on NixOS?
 
+## Neovim TODOs
+
+* Setup Neovim as a flake (it's currently an importable as vim.nix in the `vcsh_nvim` repo).
+  - Use the flake: https://github.com/neovim/neovim/wiki/Building-Neovim#nixos--nix
+  - Also: https://nixos.wiki/wiki/Neovim
+* Install spelling dictionaries for English?
+* Move the vim configuration to Lua (from vim script)
+* Migrate the config out of the `vcsh_nvim` submodule (repo) when it is shut down (we don't really want to keep it as Nix is the future)??
+
+
 # DONE
 
 * 2022-05-19: Setup hibernate to use the encrypted swap device. https://www.worldofbs.com/nixos-framework/
@@ -41,4 +48,4 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 * 2022-06-12: Setup zoxide in home-manager by adding `programs.zoxide.enable = true;`
 * 2022-06-13: Setup starship prompt; set up the configuration inside home-manager.
 * 2022-06-13: Setup git configuration using the `vcsh_misc-config` submodule.
-
+* 2022-06-22: Setup neovim as the editor (and get my config across for it).  See log for more details

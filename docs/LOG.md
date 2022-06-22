@@ -129,3 +129,28 @@ services.interception-tools = {
           EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
   ''
 ```
+# Neovim, plugins, tree-sitter and LSP issues
+
+## 2022-06-18 - A config that works between Nix (Home Manager) and Non-Nix systems.
+
+Note: the [following blog](https://breuer.dev/blog/nixos-home-manager-neovim) by [Felix Breuer](https://breuer.dev/) was a huge help in getting my neovim configuration for Nix sorted out.
+
+As I need to keep the config in then `vcsh_nvim` git repository working between my Nix/Home Manager based laptop and the (current) Ubuntu non-Nix Desktop, the `vcsh_nvim` nvim config had to have a number of changes.  Note, that I'm largely ignoring the old MacBook pro laptop, as that is being replaced by the NixOS frame.work laptop.
+
+The basic problem is that, on NixOS, "language server protocol" (LSP) servers tend to be binary exes, as does the tree-sitter parsers. This means that they really ought to be configured (in Home Manager) as packages and be declaratively configured, rather than using 'installers' inside Neovim.  It's Nix way, particularly on NixOS, and it actually seems better (if a little awkward).  It means that the configuration files capture exactly what is configured, and there isn't dynamic state introduced into the configuration by, say, installing an LSP via the `:LspInfoInstall` command (available from the `nvim-lsp-installer` plugin, which is not installed when running in a Nix/Home Manager environment).
+
+So the theory is: the `init.vim` (from the `vcsh_nvim` repo) is only installed in non-Nix configurations, and it's purpose is to set `g:not_in_nix`, and then load `init_common.vim` which is common between the two configs.
+
+Thus, the difference is that non-Nix systems use vim-plug, and Nix configurations use Nix packages for the plugins.  Which brings us to the (currently) unsolved problem of what to do with the LSP server configs.
+
+On a non-Nix machine, `nvim-lsp-installer` is used to provide the `:LspInfoInstall` command, which then allows the installation of LSPs.  This doesn't exist on a Nix config, which uses packages instead.
+
+However, in the Nix config, the LSP servers don't get configured yet; and that's the problem to solve next.
+
+## (2022-06-19) Configuring LSP servers manually
+
+The [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) plugin is the starting point. This has the base configs for the lots of popular LSP servers, and serves as a base/starting point for configuring how an LSP is used.
+
+By 2022-06-22 this is now configured as declarative configs.  Added a `lua/lsp_config/servers.lua` that declaratively sets up the servers using the same config as the `nvim-lsp-installer` plugin (that's not used on Nix, but is used when the `vcsh_nvim` repo is used as a vcsh configuration).  This now means that Neovim, installed via Nix, is completely configured declaratively :)
+
+There's still things to do (see the TODO.md file), such as spelling dictionaries, turning it into a flake (for reproducibility) and probably other things I've not thought of.
