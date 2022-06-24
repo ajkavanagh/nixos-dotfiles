@@ -127,6 +127,7 @@
     pinentry-gnome
     gnome.gnome-tweaks
     wl-clipboard
+    mullvad-vpn
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
