@@ -10,9 +10,6 @@ Things to sort out on the framework NixOS laptop
 * Set up riverwm
 * Setup pipewire: https://nixos.wiki/wiki/PipeWire
 
-* need to remove nix-index as a nix-env, and re-install it via home-manager as a user program. (needs homemanager configured).
-
-* Set up mullvad VPN: https://github.com/NixOS/nixpkgs/issues/113589#issuecomment-893233499
 
 * [LOW] Setup console to use uk keymap
 
@@ -50,3 +47,5 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
   - Issue merged: https://github.com/NixOS/nixpkgs/pull/160251
   - https://github.com/89luca89/distrobox
   - Also needs podman
+* 2022-06-24: Set up mullvad VPN: https://github.com/NixOS/nixpkgs/issues/113589#issuecomment-893233499
+* 2022-06-24: Removed nix-index as a nix-env, and re-installed it via home-manager as a user program.

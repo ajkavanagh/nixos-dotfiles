@@ -41,6 +41,7 @@
     ripgrep
     silver-searcher
     unzip
+    nix-index
   ];
 
   # Let Home Manager manage bash
