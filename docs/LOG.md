@@ -154,3 +154,19 @@ The [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) plugin is the s
 By 2022-06-22 this is now configured as declarative configs.  Added a `lua/lsp_config/servers.lua` that declaratively sets up the servers using the same config as the `nvim-lsp-installer` plugin (that's not used on Nix, but is used when the `vcsh_nvim` repo is used as a vcsh configuration).  This now means that Neovim, installed via Nix, is completely configured declaratively :)
 
 There's still things to do (see the TODO.md file), such as spelling dictionaries, turning it into a flake (for reproducibility) and probably other things I've not thought of.
+
+# 2022-06-23 - Adding LXD to the mix
+
+Adding LXD to the mix was basically just adding:
+
+```nix
+# enable LXD virtualisation
+virtualisation.lxd.enable = true;
+
+# and
+extraGroups = [ ... "lxd" ]; # "wheel" enables ‘sudo’ for the user.
+```
+
+Note that the `...` is the other groups; you can't put `...` in the line!
+
+Log out and log back in, and the `lxc` and `lxd` commands become available to the user.  I then ran `lxd init` (the only imperative bit; annoying by true).  This automagically works out that LXD is running on a btrfs system and creates a btrfs subvolume for the images and instances.  All is good.

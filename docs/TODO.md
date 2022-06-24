@@ -15,7 +15,6 @@ Things to sort out on the framework NixOS laptop
 
 * need to remove nix-index as a nix-env, and re-install it via home-manager as a user program. (needs homemanager configured).
 
-* Set up LXD so we can do Ubuntu stuff on the laptop
 * Set up mullvad VPN: https://github.com/NixOS/nixpkgs/issues/113589#issuecomment-893233499
 
 * [LOW] Setup console to use uk keymap
@@ -49,3 +48,4 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 * 2022-06-13: Setup starship prompt; set up the configuration inside home-manager.
 * 2022-06-13: Setup git configuration using the `vcsh_misc-config` submodule.
 * 2022-06-22: Setup neovim as the editor (and get my config across for it).  See log for more details
+* 2022-06-23: Set up LXD so we can do Ubuntu stuff on the laptop

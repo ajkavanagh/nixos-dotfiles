@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 { imports = [
-  # Use the https://github.com/NixOS/nixos-hardware definition for the framework
-  <nixos-hardware/framework>
+    # Use the https://github.com/NixOS/nixos-hardware definition for the framework
+    <nixos-hardware/framework>
 
-  # Include the results of the hardware scan.
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -91,13 +91,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # enable LXD virtualisation
+  virtualisation.lxd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
     home = "/home/alex";
     description = "Alex Kavanagh";
     initialPassword = "password";
-    extraGroups = [ "wheel" "networkmanager" ]; # "wheel" enables ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "lxd" ]; # "wheel" enables ‘sudo’ for the user.
   };
 
   # Enable the gpgagent
