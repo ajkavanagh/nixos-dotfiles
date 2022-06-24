@@ -9,9 +9,6 @@ Things to sort out on the framework NixOS laptop
   - useful info: https://shibumi.dev/posts/wayland-in-2021/  -- arch, but adaptable.
 * Set up riverwm
 * Setup pipewire: https://nixos.wiki/wiki/PipeWire
-* Setup distrobox (maybe?)
-  - Issue merged: https://github.com/NixOS/nixpkgs/pull/160251
-  - https://github.com/89luca89/distrobox
 
 * need to remove nix-index as a nix-env, and re-install it via home-manager as a user program. (needs homemanager configured).
 
@@ -49,3 +46,7 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 * 2022-06-13: Setup git configuration using the `vcsh_misc-config` submodule.
 * 2022-06-22: Setup neovim as the editor (and get my config across for it).  See log for more details
 * 2022-06-23: Set up LXD so we can do Ubuntu stuff on the laptop
+* 2022-06-24: Setup distrobox (maybe?)
+  - Issue merged: https://github.com/NixOS/nixpkgs/pull/160251
+  - https://github.com/89luca89/distrobox
+  - Also needs podman

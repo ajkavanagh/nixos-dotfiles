@@ -94,6 +94,14 @@
   # enable LXD virtualisation
   virtualisation.lxd.enable = true;
 
+  # enable podman for the distrobox package
+  virtualisation.podman = {
+    enable = true;
+    # Create a 'docker' alias for podman, as a docker replacement
+    dockerCompat = true;
+  };
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
@@ -109,6 +117,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    distrobox
     vim
     wget
     git
