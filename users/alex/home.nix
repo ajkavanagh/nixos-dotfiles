@@ -46,7 +46,12 @@
   ];
 
   # Let Home Manager manage bash
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      export PATH="$HOME/.local/bin:$PATH"
+    '';
+  };
 
   home.sessionVariables = {
     EDITOR = "vim";
