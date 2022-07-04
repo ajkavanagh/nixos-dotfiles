@@ -53,6 +53,9 @@
     '';
   };
 
+  # doesn't seem to work at the moment?
+  #programs.gnome-terminal.enable = true;
+
   home.sessionVariables = {
     EDITOR = "vim";
     TERM = "xterm-256color";
