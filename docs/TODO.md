@@ -10,7 +10,6 @@ Things to sort out on the framework NixOS laptop
 * Set up riverwm
 * Setup pipewire: https://nixos.wiki/wiki/PipeWire
 
-
 * [LOW] Setup console to use uk keymap
 
 ## Home Manager TODOs
