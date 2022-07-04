@@ -46,6 +46,36 @@ Followed https://christine.website/blog/nix-flakes-1-2022-02-21
 
 Essentially add `nix = { ... };` to the `configuration.nix` and do a nixos-rebuild switch
 
+## 2022-05-30 -- Enabling home-manager for alex.
+
+Essentially do:
+
+```bash
+$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+$ nix-channel --update
+
+# and then do to the actual install, we run:
+$  nix-shell '<home-manager>' -A install
+```
+
+This puts the config in `/home/alex/.config/nixpkgs/home.nix`.  We'll move this into the .nixos-dotfiles repository after we've got an initial configuration going.
+
+Note that I used the master channel as I'm running unstable (22.05 pre-release).
+
+I've removed `.config/nixpkgs/home.nix` and left a not that its managed in `.nixos-dotfiles/users/alex/home.nix`.
+
+# Things that weren't done declaratively - as of 2022-06-06
+
+So, there's been a few things that weren't done declaratively.  This is obviously a bad thing from a reproducibilty perspective, but it was kind of a 'needs must' situation, as I was trying to get the NixOS Frame.work ready for a trip which it ultimately didn't make.  However, these items were done non-declaratvely:
+
+ * Syncthing configurations; it might not even be possible to do it declaratively.
+ * OpenVPN configurations; the `~/.sesame` folder was added and then Network Manager was configured to use it.
+ * Mullvad-vpn; the program was added, but then the account was added imperatively, and thus is not re-producible.
+ * SSH credentials and configuration; the `./.ssh` folder was added manually, so that it could be used directly.
+ * Neovim; in a slightly different category, as the config is a submodule, but essentially this cargo-cults the vcsh\_nvim repository & config into nixos and then uses the files directly ... and they don't work properly yet, another reason why the frame.work laptop didn't make the trip.
+
+Each of these items perhaps could be done done iteratively, via (hopefully) config in home-manager.  It's not totally clear how the Syncthing configuration can be done declaratively, except perhaps through idempotent scripts that set up the folders?  Again, the same may be true of Mullvad?
+
 ## 2055-06-02 -- Enable git-crypt on the .dotfiles repository
 
 Firstly, I renamed the `.nixos-dotfiles` directory to `.dotfiles` and made the changes to `maint-scripts/apply-system` and `maint-scripts/apply-user` as it's smaller to type and doesn't interfere with other `.nix*` directories/files in `$HOME`; this affects completion, so seems like a good move.
