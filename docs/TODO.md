@@ -46,6 +46,15 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 
 ## 3rd round - moving it to flakes
 
+
+# TOPIC specific
+
+## Charmcraft
+
+In all likelihood I'm going to need to make a nix derivation for charmcraft from the upstream repository. Some useful links:
+
+* https://discourse.nixos.org/t/installing-a-snap-package/11468
+
 # DONE
 
 * 2022-05-19: Setup hibernate to use the encrypted swap device. https://www.worldofbs.com/nixos-framework/
