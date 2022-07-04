@@ -40,6 +40,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ripgrep
     silver-searcher
+    stack
     unzip
     nix-index
   ];
