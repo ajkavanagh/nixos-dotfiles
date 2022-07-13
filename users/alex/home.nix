@@ -75,7 +75,7 @@
   # files; this is a temporary measure whilst they are shared with Ubuntu
   home.file.".gitconfig".source = ../../submodules/vcsh_misc-config/.gitconfig;
   home.file.".gitconfig.d" = {
-    source = ../../submodules/vcsh_misc-config/.gitignore.d;
+    source = ../../submodules/vcsh_misc-config/.gitconfig.d;
     recursive = true;
   };
   # TODO: need to add the .gitignore_global file here and add it from laptop into
