@@ -37,6 +37,7 @@
     git-crypt
     gnupg
     mattermost-desktop
+    gitter
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ripgrep
     silver-searcher
