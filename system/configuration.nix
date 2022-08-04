@@ -20,11 +20,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # help out the LUKS boot:
-  boot.initrd.luks.devices."swap-crypt-p2".device = "/dev/disk/by-uuid/a5238fc2-2699-4d70-b53f-ee5e18971dbf";
-  boot.initrd.luks.devices."root-crypt-p3".device = "/dev/disk/by-uuid/a41df29c-41c5-469d-bd22-ed15ecf6424a";
+  boot.initrd.luks.devices."swap-crypt-p2".device = "/dev/disk/by-uuid/0df473f3-ed77-4d28-8bb4-db16d4ff0c7c";
+  boot.initrd.luks.devices."root-crypt-p3".device = "/dev/disk/by-uuid/acc397b2-a14a-4618-a32e-a35ef6880bd8";
 
   # Set up resume/hibernation support
-  boot.resumeDevice = "/dev/disk/by-uuid/fc48ffc3-5749-4754-8756-eb6f9259dce4";
+  boot.resumeDevice = "/dev/disk/by-uuid/4528549c-b853-46df-a147-3cc2f4b6b5cb";
 
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
