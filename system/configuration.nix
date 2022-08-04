@@ -151,6 +151,9 @@
 
   # Fingerprint reader as login:
   # Note: services.fprintd.enable=true comes from <nixos-hardware/framework> default config.
+  # disabled as I don't actually like the experience, nor security theatre
+  # of the fingerprint reader.
+  services.fprintd.enable=false;
 
   # Graphics stuff:
   hardware.opengl.enable = true;
