@@ -83,6 +83,9 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
+  programs.system-config-printer.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -128,6 +131,7 @@
     gnome.gnome-tweaks
     wl-clipboard
     mullvad-vpn
+    ipmiview
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -179,6 +183,9 @@
   networking.firewall.checkReversePath = "loose";
   networking.wireguard.enable = true;
   services.mullvad-vpn.enable = true;
+
+  # enable java
+  programs.java.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
