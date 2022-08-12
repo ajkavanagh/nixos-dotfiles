@@ -186,6 +186,21 @@
   networking.firewall.checkReversePath = "loose";
   networking.wireguard.enable = true;
   services.mullvad-vpn.enable = true;
+  networking.extraHosts = ''
+    10.245.160.2	churel
+    10.245.168.6	ruxton-maas
+    10.245.162.99   mosci
+    10.245.162.58   osci
+    10.245.164.110  zosci
+    10.245.166.41   influxdb-bastion
+    10.245.167.96   jupyter-bastion
+
+    10.245.166.123	tinwood-charmcraft
+    10.245.162.158	tinwood-bastion-xenial
+    10.245.162.18	tinwood-bastion
+    10.245.166.136	tinwood-focal
+    10.245.165.179	tinwood-jammy
+  '';
 
   # enable java
   programs.java.enable = true;

@@ -31,7 +31,7 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 * Setup Neovim as a flake (it's currently an importable as vim.nix in the `vcsh_nvim` repo).
   - Use the flake: https://github.com/neovim/neovim/wiki/Building-Neovim#nixos--nix
   - Also: https://nixos.wiki/wiki/Neovim
-* Install spelling dictionaries for English?
+* Install spelling dictionaries for English? (I need to check this)
 * Move the vim configuration to Lua (from vim script)
 * Migrate the config out of the `vcsh_nvim` submodule (repo) when it is shut down (we don't really want to keep it as Nix is the future)??
 
