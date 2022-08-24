@@ -2,11 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 { imports = [
     # Use the https://github.com/NixOS/nixos-hardware definition for the framework
     <nixos-hardware/framework>
+
+    # Home manager as a module
+    <home-manager/nixos>
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -113,6 +116,10 @@
     initialPassword = "password";
     extraGroups = [ "wheel" "networkmanager" "lxd" ]; # "wheel" enables ‘sudo’ for the user.
   };
+
+  # Add in home-manager for the user
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.alex = import ../users/alex/home.nix {pkgs=pkgs; lib=lib;};
 
   # Enable the gpgagent
   programs.gnupg.agent = {

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+#{ config, pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # neovim config is set from the vim.nix in the submodule
@@ -23,12 +24,17 @@
   programs.home-manager.enable = true;
 
   # Switch fonts on; they get installed in home.packages
-  fonts.fontconfig.enable = true;
+  # Note due to https://github.com/nix-community/home-manager/issues/1118
+  # we hvae to force the config option to true to override the one
+  # from the home-manager module when home-manager is used as a module
+  # fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = lib.mkForce true;
 
   # Packages installed for this user:
   home.packages = with pkgs;
   [
     alacritty
+    bat
     bitwarden
     cargo
     cmake
