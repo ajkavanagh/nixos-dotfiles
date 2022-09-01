@@ -60,6 +60,12 @@
     '';
   };
 
+  # Set up ~/.local/bin using vcsh_scripts submodule bin directory
+  home.file.".local/bin" = {
+    source = ../../submodules/vcsh_scripts/bin;
+    recursive = true;
+  };
+
   # doesn't seem to work at the moment?
   #programs.gnome-terminal.enable = true;
 

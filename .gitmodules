@@ -4,3 +4,6 @@
 [submodule "submodules/vcsh_misc-config"]
 	path = submodules/vcsh_misc-config
 	url = git@github.com:ajkavanagh/vcsh_misc-config.git
+[submodule "submodules/vcsh_scripts"]
+	path = submodules/vcsh_scripts
+	url = git@github.com:ajkavanagh/vcsh_scripts.git
