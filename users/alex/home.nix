@@ -56,12 +56,12 @@
   programs.bash = {
     enable = true;
     initExtra = ''
-      export PATH="$HOME/.local/bin:$PATH"
+      export PATH="$HOME/.local/bin:$HOME/.local/ro_bin:$PATH"
     '';
   };
 
   # Set up ~/.local/bin using vcsh_scripts submodule bin directory
-  home.file.".local/bin" = {
+  home.file.".local/ro_bin" = {
     source = ../../submodules/vcsh_scripts/bin;
     recursive = true;
   };
