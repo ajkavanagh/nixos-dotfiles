@@ -43,6 +43,7 @@
     git-crypt
     gnupg
     mattermost-desktop
+    element-desktop
     gitter
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ripgrep
