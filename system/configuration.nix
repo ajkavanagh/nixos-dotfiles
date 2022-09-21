@@ -4,16 +4,18 @@
 
 { config, pkgs, lib, ... }:
 
-{ imports = [
+{
+ # the nixos-hardware/framework, home-manager and hardware configuration are all imported in the flake's modules.
+ # imports = [
     # Use the https://github.com/NixOS/nixos-hardware definition for the framework
-    <nixos-hardware/framework>
+ #   <nixos-hardware/framework>
 
     # Home manager as a module
-    <home-manager/nixos>
+ #   <home-manager/nixos>
 
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  #  ./hardware-configuration.nix
+  #];
 
   # Allow unfree code
   nixpkgs.config.allowUnfree = true;
@@ -117,9 +119,10 @@
     extraGroups = [ "wheel" "networkmanager" "lxd" ]; # "wheel" enables ‘sudo’ for the user.
   };
 
+  # this is disabled as it is done in the flake.nix
   # Add in home-manager for the user
-  home-manager.useGlobalPkgs = true;
-  home-manager.users.alex = import ../users/alex/home.nix {pkgs=pkgs; lib=lib;};
+  # home-manager.useGlobalPkgs = true;
+  # home-manager.users.alex = import ../users/alex/home.nix {pkgs=pkgs; lib=lib;};
 
   # Enable the gpgagent
   programs.gnupg.agent = {

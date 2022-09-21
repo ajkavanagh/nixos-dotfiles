@@ -38,6 +38,7 @@
     bitwarden
     cargo
     cmake
+    gh
     fd
     gcc
     git-crypt
@@ -75,6 +76,7 @@
     TERM = "xterm-256color";
     XCURSOR_THEME = "Adwaita";  # may need to revist for sway?
     QT_QPA_PLATFORM = "wayland";  # for QT apps that run python?
+    # GITHUB_TOKEN = "''$(cat ${config.age.secrets.github-token.path})";  # Note '' is the escape sequence for $
   };
 
   # configure alacritty to use the submodule vcsh_misc-config files
