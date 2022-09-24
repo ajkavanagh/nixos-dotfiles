@@ -137,6 +137,7 @@
     vim
     wget
     git
+    git-review
     file
     firefox-wayland
     google-chrome
