@@ -46,6 +46,15 @@ So Home Manager manages the users programs and dotfiles.  Need to migrate my vcs
 
 ## 3rd round - moving it to flakes
 
+* ~~Moving it all to a flake~~
+* Make neovim configuration a flake, rather than a submodule for home-manager config.
+* Remove the other submodules, and make them flakes.
+* Then tie it all together.
+
+### Done
+
+* A impure, submodule, system flake is now done.  Need to make it pure.
+
 
 # TOPIC specific
 
