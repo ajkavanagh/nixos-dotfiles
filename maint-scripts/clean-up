@@ -1,0 +1,6 @@
+#!/bin/sh
+(
+    cd $HOME/.dotfiles
+    sudo nix-collect-garbage --delete-older-than 30d
+    sudo ./maint-scripts/apply-system
+)
