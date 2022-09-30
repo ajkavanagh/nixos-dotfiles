@@ -147,6 +147,7 @@
     mullvad-vpn
     ipmiview
     killall
+    dig.dnsutils
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
