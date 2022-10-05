@@ -34,6 +34,7 @@
   home.packages = with pkgs;
   [
     alacritty
+    byobu
     bat
     bitwarden
     cargo
@@ -60,6 +61,14 @@
     initExtra = ''
       export PATH="$HOME/.local/bin:$HOME/.local/ro_bin:$PATH"
     '';
+  };
+
+  #  Enable tmux for byobu
+  programs.tmux = {
+    enable = true;
+    historyLimit = 20000;
+    keyMode = "vi";
+    shortcut = "a";
   };
 
   # Set up ~/.local/bin using vcsh_scripts submodule bin directory
