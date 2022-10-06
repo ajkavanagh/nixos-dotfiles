@@ -112,7 +112,10 @@
   services.syncthing.tray.enable = false;  # broken on Gnome on wayland?
 
   # Add zoxide to the shell (as z and zi) as these are handy as a jump program
-  programs.zoxide.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 
   # Starship prompt, declaratively in this module (ignoring the file in vcsh_misc-config submodule
   programs.starship = {
