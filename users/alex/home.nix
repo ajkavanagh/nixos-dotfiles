@@ -46,6 +46,7 @@
     gnupg
     mattermost-desktop
     element-desktop
+    libreoffice
     gitter
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ripgrep
