@@ -68,6 +68,11 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # disable tracker and tracker-miner and evolution data services
+  services.gnome.tracker-miners.enable = false;
+  services.gnome.tracker.enable = false;
+  services.gnome.evolution-data-server.enable = lib.mkDefault false;
+
   # Configure keymap in X11
   services.xserver.layout = "gb";
   # Map CapsLock to Esc on single press and Ctrl on when used with multiple keys.
