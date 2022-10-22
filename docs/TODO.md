@@ -64,6 +64,18 @@ In all likelihood I'm going to need to make a nix derivation for charmcraft from
 
 * https://discourse.nixos.org/t/installing-a-snap-package/11468
 
+## Switch to wayland/sway and move away from Gnome
+
+I hate GNOME; it's got a horrible UX on laptops, and sway, with fullsize windows on laptops just works really well.  Thus let's move to sway.  But it's not easy and I still don't fully understand how NixOS does things.
+
+### Research
+
+* https://github.com/derat/xsettingsd - Provides settings to X11 applications via the XSETTINGS specification 
+* https://github.com/swaywm/sway/wiki - the main wiki for swaywm
+* https://swaywm.org/ - the main repo.
+* https://github.com/NixOS/nixpkgs/issues/57602 -  sway: Optimal NixOS integration #57602 
+
+
 # DONE
 
 * 2022-05-19: Setup hibernate to use the encrypted swap device. https://www.worldofbs.com/nixos-framework/

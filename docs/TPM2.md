@@ -14,3 +14,4 @@ Sign all the boot items and store the keys in the TPM so that secure boot can be
 ## References / Reading
 
  * systemd: add missing TPM2 build dependencies (merged) https://github.com/NixOS/nixpkgs/pull/139864/files
+ * https://github.com/NixOS/nixpkgs/projects/51 - systemd in Stage 1
